@@ -33,6 +33,10 @@ Oleh : Alifa Izzan
 - di dalam komponen tersebut ubah menjadi seperti ini:
 ![edit2](assets/editworkflow2.png)
 - pada kali ini kita pakai file temporary bernama inputrating.csv dan tambahkan wait node  untuk menunggu 1 menit untuk menunggu input dari user
+- selanjutnya buka komponen Display Recommendation
+![edit3](assets/editworkflow3.png)
+- hapus tabel editor dan text display lalu ganti dengan csvwriter
+![edit4](assets/editworkflow4.png)
 
 
 ## CRISP-DM
@@ -41,17 +45,50 @@ Oleh : Alifa Izzan
 
 ### Bussiness Understanding
 
-Pada kali ini dibutuhkan rekomendasi film untuk pengguna web agar meningkatkan penggunaan layanan.
+Pada kali ini dibutuhkan rekomendasi film yang akurat.
 
 ### Data Understanding
+
+Sumber data berasal dari movieLens 20M data yang dipakai adalah movies.csv (movieId, title, genres) dan ratings.csv (userId, movieId, rating, timestamp) juga terdapat input data dari user menggunakan inputrating.csv (movieId, title, genres, userId, ratings)
+
+![crispi2](assets/crispdm2.png)
+
 ### Data Preparation
+
+Sebelum dilakukan pembuatan model data di proses terlebih dahulu.
+
+untuk movies.csv:
+![crispi3](assets/crispdm3.png)
+
+data movies.csv diacak lalu ditambahkan kolom konstan dan di pisah untuk diproses lebih lanjut
+
+untuk ratings.csv:
+![crispi4](assets/crispdm4.png)
+
+data ratings.csv dipartisi untuk train set dan test set
+
+untuk inputrating.csv:
+![crispi5](assets/crispdm5.png)
+
+rating yang tidak diisi oleh user dihapus
+
 ### Modeling
+
+Pemodelan pada workflow ini menggunakan Colaborative Filtering dari Spark
+
+![crispi6](assets/crispdm6.png)
+
 ### Evaluation
 
+Model yang telah dibuat diuji menggunakan 20% data rating untuk dicari nilai errornya. ketika error dibawah yang ditetapkan pada proses bisnis maka model dapat di deploy.
+
+![crispi7](assets/crispdm7.png)
 
 ### Deployment
 
-Interface yang bisa digunakan adalah sebagai berikut:
+Pada kali ini data disajikan dalam bentuk hasil.csv. di dalamnya terdapat top 20 rekomendasi film yang dihasilkan oleh model.
+
+![crispi8](assets/crispdm8.png)
 
 
 ## Pengujian Node dan Kesimpulan Pengujian
