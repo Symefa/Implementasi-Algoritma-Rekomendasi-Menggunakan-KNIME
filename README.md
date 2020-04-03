@@ -133,6 +133,6 @@ Untuk menguji node menggunakan workflow dibawah ini:
 
 Kedua metode telah diuji menggunakan kombinasi fitur Timer Info dan pengukuran manual. kombinasi tersebut diperlukan untuk melakukan pengukuran proses setting yang membutuhan membaca data yang tidak masuk kedalam node Timer Info pada node File Reader karena proses tersebut membutuhkan waktu yang cukup signifikan. Dan akan adil karena saya juga mengukur proses pembuatan Environtment Big Data. tentunya pengukuran manual memiliki human error, namun bisa diabaikan karena nilainya kecil.
 
-Kesimpulan yang didapat node CSVtoSpark rata-rata lebih cepat **431%**.
+Kesimpulan yang didapat node CSVtoSpark rata-rata dapat membaca lebih cepat **431%** dari pada menggunakan node File Reader.
 
 Workflow pengujian dapat dilihat pada Benchmark.knwf
