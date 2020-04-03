@@ -120,15 +120,19 @@ Untuk menguji node menggunakan workflow dibawah ini:
 ![resultbenchmark3](assets/resultbenchmark3.png)
 - File Reader membutuhkan total waktu **378,531 detik** setelah ditambah waktu yang manual dihitung dengan stopwatch
 
+**pastikan anda reset semua node sebelum melakukan salah satu pengujian**
+
+**ulangi step pegujian sesuai yang anda rasa cukup**
+
 ### Kesimpulan
 
-| Node | Waktu |
-| :--- | :---- |
-| CSVtoSpark | 73,36 |
-| File Reader | 378,531 |
+| Node | Pengujian 1 | Pengujian 2 | Pengujian 3 | Rata-Rata |
+| :--- | :---- |:--- | :---- | :---- |
+| CSVtoSpark | 73.36 | 63.13 | 78.41 | 71.63 |
+| File Reader | 378.53 | 266.96 | 281.57 | 309.02 |
 
-Kedua metode telah diuji menggunakan kombinasi fitur Timer Info dan pengukuran manual. kombinasi tersebut diperlukan untuk melakukan pengukuran proses setting yang membutuhan membaca data yang tidak masuk kedalam node Timer Info pada node File Reader karena proses tersebut membutuhkan waktu yang cukup signifikan. Dan akan adil karena saya juga mengukur proses pembuatan Environtment Big Data. tentunya pengukuran manual memiliki deviasi +- 1 detik error.
+Kedua metode telah diuji menggunakan kombinasi fitur Timer Info dan pengukuran manual. kombinasi tersebut diperlukan untuk melakukan pengukuran proses setting yang membutuhan membaca data yang tidak masuk kedalam node Timer Info pada node File Reader karena proses tersebut membutuhkan waktu yang cukup signifikan. Dan akan adil karena saya juga mengukur proses pembuatan Environtment Big Data. tentunya pengukuran manual memiliki human error, namun bisa diabaikan karena nilainya kecil.
 
-Kesimpulan yang didapat node CSVtoSpark lebih cepat **502%** dengan error **+- 1%** pada pengujian kali ini.
+Kesimpulan yang didapat node CSVtoSpark rata-rata lebih cepat **431%**.
 
 Workflow pengujian dapat dilihat pada Benchmark.knwf
